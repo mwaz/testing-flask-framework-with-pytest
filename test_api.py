@@ -2,16 +2,13 @@ import pytest
 import json
 from api import app
 
-
-# test the root route
-# @pytest.mark.one
 def test_index_route():
     response = app.test_client().get('/')
 
     assert response.status_code == 200
     assert response.data.decode('utf-8') == 'Testing, Flask!'
 
-
+@pytest.mark.get_request
 def test_get_all_books():
     response = app.test_client().get('/bookapi/books')
 
@@ -24,6 +21,7 @@ def test_get_all_books():
     assert type(res) is list
 
 
+@pytest.mark.get_request
 def test_get_book_by_id():
     response = app.test_client().get('/bookapi/books/1')
     res = json.loads(response.data.decode('utf-8')).get("Book")
