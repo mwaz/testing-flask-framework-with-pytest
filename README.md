@@ -1,7 +1,32 @@
-circleci-project-setup
+# Book-Retrieval API
+The repository contains a RESTful API built with Flask for retrieving books from the database. You can use the following endpoints:
 
 
-# book-api
-a flask library api, with tests and circle ci integration
+`[GET] /bookapi/books/:id` - Fetching a single book by its id.
+`[GET] /bookapi/books` - Fetching all books
 
-circle ci status badge: [![CircleCI](https://circleci.com/gh/Willbeckh/book-api.svg?style=svg&circle-token=dd910d77aca29015dffc3bd164265dd953a1f410)](https://app.circleci.com/pipelines/github/Willbeckh/book-api)
+**Note**: <i> The data is hardcorded to keep the tutorial simple, nothing fancy :)</i>
+## Running the API
+
+FLASK_APP=api.py flask run
+
+## Execution all the Tests
+To execute all the tests, run the following command:
+
+```bash
+pytest 
+```
+
+## Execution all the Tests with stdout response
+To execute all the tests, run the following command:
+
+```bash
+pytest -s
+```
+
+## Running only grouped Tests
+To only execute the `get_request` grouped tests, run the following command:
+
+```bash
+pytest -m get_request
+```
