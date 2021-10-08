@@ -23,7 +23,7 @@ books = [
     
 @app.route("/")
 def index():
-    return "Hello, World!"
+    return "Testing, Flask!"
 
     
 # get and jsonify the data

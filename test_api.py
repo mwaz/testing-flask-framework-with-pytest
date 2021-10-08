@@ -9,10 +9,10 @@ def test_index_route():
     response = app.test_client().get('/')
 
     assert response.status_code == 200
-    assert response.data == b'Hello, World!'
+    assert response.data.decode('utf-8') == 'Testing, Flask!'
 
 
-def test_books_request():
+def test_get_all_books():
     response = app.test_client().get('/bookapi/books')
 
     res = json.loads(response.data.decode('utf-8')).get("Books")
@@ -24,7 +24,7 @@ def test_books_request():
     assert type(res) is list
 
 
-def test_books_id():
+def test_get_book_by_id():
     response = app.test_client().get('/bookapi/books/1')
     res = json.loads(response.data.decode('utf-8')).get("Book")
     print(res)
